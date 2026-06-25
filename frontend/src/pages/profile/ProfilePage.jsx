@@ -19,7 +19,7 @@ const ProfilePage = () => {
 
 	const coverImgRef = useRef(null);
 	const profileImgRef = useRef(null);
-
+	
 	const isLoading = false;
 	const isMyProfile = true;
 
