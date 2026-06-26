@@ -40,13 +40,14 @@ export async function createPost(req, res) {
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ error: "User not found" });
 
+    
     if (!text && !img) {
       return res.status(400).json({ error: "Post must have text or image" });
     }
 
     if (img) {
-      const uploadResponse = await cloudinary.uploader.upload(img);
-      img = uploadResponse.secure_url;
+      const uploadedResponse = await cloudinary.uploader.upload(img);
+      img = uploadedResponse.secure_url;
     }
 
     const newPost = new Post({
